@@ -4,9 +4,10 @@ import './App.css'
 import ContactForm from '../ContactForm/ContactForm'
 import SearchBox from '../SearchBox/SearchBox'
 import { useDispatch, useSelector } from 'react-redux'
-import { filteredContacts, selectError, selectLoading } from '../../redux/selectors'
 import { useEffect } from 'react'
-import { fetchContacts } from '../../redux/contactsOps'
+import { fetchContacts } from '../../redux/contacts/operations'
+import { filteredContacts } from '../../redux/contacts/slice'
+import { selectError, selectLoading } from '../../redux/contacts/selectors'
 
 function App() {
   const dispatch = useDispatch();
