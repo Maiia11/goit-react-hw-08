@@ -6,6 +6,7 @@ import { selectUser } from "../../redux/auth/selectors"
 export const UserMenu = () => {
 
   const user = useSelector(selectUser)
+  console.log(user);
 
   const dispatch = useDispatch()
   const handleLoggout = () => {
@@ -14,7 +15,7 @@ export const UserMenu = () => {
   
   return (
     <div>
-      <p>Welcome {user.name}</p>
+      <p>Welcome, {user.name}</p>
       <button type="button" onClick={handleLoggout}>Log out</button>
     </div>
   )
