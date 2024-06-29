@@ -9,9 +9,11 @@ import { fetchContacts } from '../../redux/contacts/operations'
 import { filteredContacts } from '../../redux/contacts/slice'
 import { selectError, selectLoading } from '../../redux/contacts/selectors'
 import Layout from '../Layout/Layout'
-
-// import HomePage from '../../pages/HomePage/HomePage'
-// import RegistrationPage from "../../pages/RegistrationPage/RegistrationPage"
+import { Route, Routes } from 'react-router-dom'
+import HomePage from '../../pages/HomePage/HomePage'
+import RegistrationPage from "../../pages/RegistrationPage/RegistrationPage"
+import LoginPage from '../../pages/LoginPage/LoginPage'
+import ContactsPage from '../../pages/ContactsPage/ContactsPage'
 
 function App() {
   const dispatch = useDispatch();
@@ -28,12 +30,14 @@ function App() {
   return (
     <div>
       <Layout>
-        {/* <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/register" element={<RegistrationPage/> } />
-
+        <Routes>
+          <Route path='/' element={<HomePage />} />
+          <Route path='/register' element={<RegistrationPage />} />
+          <Route path='/login' element={<LoginPage />} />
+          <Route path='/contacts' element={<ContactsPage/>} />
           
-        </Routes> */}
+        </Routes>
+       
         </Layout>
       
       <h1>Phonebook</h1>
