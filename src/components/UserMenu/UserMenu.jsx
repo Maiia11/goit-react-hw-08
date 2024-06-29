@@ -2,6 +2,9 @@
 
 export const UserMenu = () => {
   return (
-    <div>UserMenu</div>
+    <div>
+      <p>Welcome user</p>
+      <button type="button">Log out</button>
+    </div>
   )
 }
