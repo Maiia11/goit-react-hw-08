@@ -7,6 +7,11 @@ const setHeaderToken = (token) => {
     
 }
 
+const clearHeaderToken = () => {
+    delete axios.defaults.headers.common['Authorization']; 
+    
+}
+
 export const registerOperation = createAsyncThunk('auth/register', async (userData, { rejectWithValue }) => {
     try {
         const { data } = await axios.post('users/signup', userData)
@@ -27,6 +32,16 @@ export const loginOperation = createAsyncThunk('auth/login', async (userData, { 
         setHeaderToken(data.token) 
         return data
         
+    } catch (error) {
+        return rejectWithValue(error.message)
+    }
+}
+)
+
+export const loggOutOperation = createAsyncThunk('auth/logout', async (_, { rejectWithValue }) => {
+    try {
+        await axios.post('users/logout') 
+        clearHeaderToken()
     } catch (error) {
         return rejectWithValue(error.message)
     }
