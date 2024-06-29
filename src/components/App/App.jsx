@@ -16,14 +16,12 @@ import LoginPage from '../../pages/LoginPage/LoginPage'
 import ContactsPage from '../../pages/ContactsPage/ContactsPage'
 
 function App() {
-  const dispatch = useDispatch();
+  
   //  const contacts = useSelector(filteredContacts);
   // const loading = useSelector(selectLoading);
   // const error = useSelector(selectError);
   
-  useEffect(() => {
-       dispatch(fetchContacts())
-  }, [ dispatch])
+  
   
  
   
