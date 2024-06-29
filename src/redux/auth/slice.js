@@ -36,15 +36,15 @@ const authSlice = createSlice({
             state.isLoggedIn = false;
 
     })
-        //  .addCase(currentOperation.fulfilled, (state, {payload}) => {
-        //      state.user = payload.user;
-        //      state.token = payload.token;
-        //      state.isLoggedIn = true;
+          .addCase(currentOperation.fulfilled, (state, {payload}) => {
+            state.user = payload.user;
+              state.token = payload.token;
+              state.isLoggedIn = true;
 
-        //  })
-        // .addCase(currentOperation.rejected, (state) => {
-        //     state.token = null;
-        //     })
+         })
+        .addCase(currentOperation.rejected, (state) => {
+            state.token = null;
+            })
     
     }
 
