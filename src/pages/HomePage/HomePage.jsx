@@ -3,9 +3,14 @@ import { MdOutlineContactPhone } from "react-icons/md";
 
 const HomePage = () => {
   return (
-    <div>
-      <h1 className={css.text}>Contact meneger welcome page</h1>
-      <MdOutlineContactPhone />
+    <div >
+      <h1 className={css.text}>
+        <span className={css.textWithIcon}>
+          Contact manager welcome page
+          <MdOutlineContactPhone className={css.icon} />
+        </span>
+      </h1>
+      
     </div>
   )
 }

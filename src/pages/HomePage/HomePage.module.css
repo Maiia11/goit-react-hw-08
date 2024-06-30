@@ -1,5 +1,28 @@
-.text{
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* Высота контейнера для центрирования по вертикали */
     text-align: center;
-    color: black;
-    margin: 48px;
+}
+
+.text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.textWithIcon {
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    margin-left: 10px;
+    /* Отступ слева от текста до иконки */
+    font-size: 40px;
+    /* Измените размер по необходимости */
+    color: red;
+    /* Цвет иконки */
 }
