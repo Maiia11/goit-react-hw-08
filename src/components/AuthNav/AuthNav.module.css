@@ -1,0 +1,19 @@
+.link {
+    font-weight: 700;
+    color: black;
+}
+
+.link:hover {
+    color: brown;
+    /* Цвет при наведении */
+}
+
+.homeLink {
+    font-size: 25px;
+    /* Задайте нужный размер текста */
+}
+
+.container{
+    display: flex;
+    gap: 25px;
+}
