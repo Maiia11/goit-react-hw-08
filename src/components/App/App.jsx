@@ -1,16 +1,21 @@
 
 import './App.css'
 import { useDispatch} from 'react-redux'
-import { useEffect } from 'react'
-import Layout from '../Layout/Layout'
+import { Suspense, lazy, useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
-import HomePage from '../../pages/HomePage/HomePage'
 import RegistrationPage from "../../pages/RegistrationPage/RegistrationPage"
-import LoginPage from '../../pages/LoginPage/LoginPage'
-import ContactsPage from '../../pages/ContactsPage/ContactsPage'
 import { currentOperation } from '../../redux/auth/operations'
-import PrivateRoute from '../PrivateRoute/PrivateRoute'
-import RestrictedRoute from '../RestrictedRoute/RestrictedRoute'
+
+
+
+const Layout = lazy(() => import("../Layout/Layout"));
+const HomePage = lazy(() => import("../../pages/HomePage/HomePage"));
+const LoginPage = lazy(() => import("../../pages/LoginPage/LoginPage"));
+const ContactsPage = lazy(() => import("../../pages/ContactsPage/ContactsPage"));
+const PrivateRoute = lazy(() => import("../PrivateRoute/PrivateRoute"));
+const RestrictedRoute = lazy(() => import("../RestrictedRoute/RestrictedRoute"));
+
+
 
 function App() {
   const dispatch = useDispatch()
@@ -20,10 +25,9 @@ function App() {
   }, [dispatch])
   
   
- 
-  
   return (
     <div>
+      <Suspense fallback={null}>
       <Layout>
         <Routes>
           <Route path='/' element={<HomePage />} />
@@ -34,11 +38,9 @@ function App() {
           <Route element={<PrivateRoute />}>
              <Route path='/contacts' element={<ContactsPage/>} />
           </Route>
-         
-          
         </Routes>
-       
         </Layout>
+        </Suspense>
       
 </div>
   )
