@@ -11,6 +11,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    color: black;
 }
 
 .textWithIcon {
@@ -21,8 +22,8 @@
 .icon {
     margin-left: 10px;
     /* Отступ слева от текста до иконки */
-    font-size: 40px;
+    font-size: 65px;
     /* Измените размер по необходимости */
-    color: red;
+    color: rgb(24, 191, 38);
     /* Цвет иконки */
 }
