@@ -10,6 +10,7 @@ import LoginPage from '../../pages/LoginPage/LoginPage'
 import ContactsPage from '../../pages/ContactsPage/ContactsPage'
 import { currentOperation } from '../../redux/auth/operations'
 import PrivateRoute from '../PrivateRoute/PrivateRoute'
+import RestrictedRoute from '../RestrictedRoute/RestrictedRoute'
 
 function App() {
   const dispatch = useDispatch()
@@ -26,8 +27,10 @@ function App() {
       <Layout>
         <Routes>
           <Route path='/' element={<HomePage />} />
-          <Route path='/register' element={<RegistrationPage />} />
+          <Route element={<RestrictedRoute/>}>
+            <Route path='/register' element={<RegistrationPage />} />
           <Route path='/login' element={<LoginPage />} />
+          </Route>
           <Route element={<PrivateRoute />}>
              <Route path='/contacts' element={<ContactsPage/>} />
           </Route>
