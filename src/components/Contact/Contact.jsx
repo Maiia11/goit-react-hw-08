@@ -16,7 +16,7 @@ const Contact = ({ name, number, id }) => {
         <h2 className={css.text} >{name}</h2>
         <p className={css.text}>{number}</p>
         </div> 
-          <button type="button" onClick={()=>onDelete(id)}> Delete </button>
+          <button type="button" onClick={()=>onDelete(id)} className={css.btn}> Delete </button>
      </div>
     
   )

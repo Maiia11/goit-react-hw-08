@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+}
+
+.label {
+    color: black;
+}
+
+.input {
+    width: 250px;
+    height: 20px;
+    margin-bottom: 10px;
+}
+
+.span {
+    color: red
+}
+
+.btn {
+    width: 100px;
+    height: 40px;
+    color: black;
+    background-color: rgb(17, 234, 17);
+}

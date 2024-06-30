@@ -44,7 +44,7 @@ function ContactForm() {
           <Field type="text" name="number" id={nameFieldNumber} />
          <ErrorMessage className={css.span} name="number" component="span"/>
           </div>
-      <button type="submit">Add contact</button>
+      <button type="submit" className={css.btn}>Add contact</button>
       </Form>
       </Formik>
   )
