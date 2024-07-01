@@ -20,9 +20,6 @@ const RegistrationForm = ({submit}) => {
        
     } 
 
- 
-
-
   return (
       <Formik initialValues={{name: "", email:"", password:""}} onSubmit={handleSubmit}  validationSchema={contactSchema} > 
           <Form className={css.container}>
