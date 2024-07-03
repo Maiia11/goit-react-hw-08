@@ -2,6 +2,8 @@ import {  ErrorMessage, Field, Form, Formik, } from "formik"
 import { useId } from "react"
 import * as Yup from 'yup';
 import css from './RegistrationForm.module.css'
+import { useDispatch } from "react-redux";
+import { registerOperation } from "../../redux/auth/operations";
 
    const contactSchema = Yup.object().shape({
         name: Yup.string().min(3, "Too short").max(25, "Too long").required('required'),
@@ -10,12 +12,13 @@ import css from './RegistrationForm.module.css'
  
 })
 
-const RegistrationForm = ({submit}) => {
+const RegistrationForm = () => {
+    const dispatch = useDispatch();
     const nameId = useId();
     const emailId = useId();
     const passwordId = useId();
     const handleSubmit = (values, action) => {
-        submit(values)
+        dispatch(registerOperation(values))
         action.resetForm()
        
     } 
