@@ -36,15 +36,22 @@ const authSlice = createSlice({
             state.isLoggedIn = false;
 
     })
+            .addCase(currentOperation.pending, (state) => {
+        state.isRefreshing = true;
+
+         })
             .addCase(currentOperation.fulfilled, (state, {payload}) => {
             state.user = payload;
             state.isLoggedIn = true;
-
+            state.isRefreshing = false;
+            
          })
            
         .addCase(currentOperation.rejected, (state) => {
             state.token = null;
-            })
+            state.isRefreshing = false;
+        })
+            
     
     }
 

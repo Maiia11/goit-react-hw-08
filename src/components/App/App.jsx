@@ -1,11 +1,11 @@
 
 import './App.css'
-import { useDispatch} from 'react-redux'
+import { useDispatch, useSelector} from 'react-redux'
 import { Suspense, lazy, useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import RegistrationPage from "../../pages/RegistrationPage/RegistrationPage"
 import { currentOperation } from '../../redux/auth/operations'
-
+import {selectisRefreshing } from '../../redux/auth/selectors'
 
 
 const Layout = lazy(() => import("../Layout/Layout"));
@@ -23,10 +23,13 @@ function App() {
   useEffect(() => {
     dispatch(currentOperation())
   }, [dispatch])
+
+  const isRefreshing = useSelector(selectisRefreshing);
+  console.log(isRefreshing);
   
   
-  return (
-    <div>
+  return isRefreshing ? (<b>Refreshing user...</b>) :
+    ( <div>
       <Suspense fallback={null}>
       <Layout>
         <Routes>
@@ -36,9 +39,8 @@ function App() {
             <Route path='/contacts' element={<PrivateRoute redirectTo='/login' component={<ContactsPage/>}/>} />
         </Routes>
         </Layout>
-        </Suspense>
-      
-</div>
+      </Suspense>
+    </div>
   )
 }
 
